@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import ArticlePreview from './components/article-preview';
+import articles from './data/articles';
 
+// Composant racine de l'application (celui qui est rendu dans la <div id="root" />)
+// Ce composant est responsable de la création de tous les autres
 function App() {
+  // Rendu du composant
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        // Transforme le tableau de données de départ en un tableau d'éléments JSX
+        articles.map(
+          (article) => <ArticlePreview article={article} />
+        )
+      }
     </div>
   );
 }
